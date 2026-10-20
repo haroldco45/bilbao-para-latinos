@@ -1438,7 +1438,7 @@ async function loadHero(){
 const WMO = c=> c===0?['☀️',{es:'Despejado',en:'Clear'}]: c<=3?['⛅',{es:'Parcialmente nublado',en:'Partly cloudy'}]: c<=48?['🌫️',{es:'Niebla',en:'Fog'}]: c<=57?['🌦️',{es:'Llovizna',en:'Drizzle'}]: c<=67?['🌧️',{es:'Lluvia',en:'Rain'}]: c<=77?['🌨️',{es:'Nieve',en:'Snow'}]: c<=82?['🌧️',{es:'Aguaceros',en:'Showers'}]:['⛈️',{es:'Tormenta',en:'Storm'}];
 let WX=null;
 async function loadWeather(){
-  try{ const {data}=await getJSON('https://api.open-meteo.com/v1/forecast?latitude=43.2630&longitude=-2.9350&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,uv_index_max&timezone=Europe%2FBilbao&forecast_days=4');
+  try{ const {data}=await getJSON('https://api.open-meteo.com/v1/forecast?latitude=43.2630&longitude=-2.9350&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,uv_index_max&timezone=Europe%2FMadrid&forecast_days=4');
     if(!data?.current) throw 0; WX=data; store.set('wx',data);
   }catch(e){ WX=store.get('wx',null); }
   renderWeather();
